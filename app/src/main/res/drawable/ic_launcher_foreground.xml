@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+    <!-- flask body -->
+    <path android:fillColor="#00000000" android:strokeColor="#FF22E6FF" android:strokeWidth="3.5"
+        android:strokeLineJoin="round"
+        android:pathData="M46,32 L62,32 M48,32 L48,48 L36,72 Q34,78 40,78 L68,78 Q74,78 72,72 L60,48 L60,32" />
+    <!-- liquid -->
+    <path android:fillColor="#FFFF3DAE"
+        android:pathData="M41,66 Q47,62 54,66 Q61,70 67,66 L70,72 Q71,75 67,75 L41,75 Q37,75 38,72 Z" />
+    <!-- wave line / sound -->
+    <path android:fillColor="#00000000" android:strokeColor="#FFB6FF3B" android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:pathData="M44,58 L48,58 L50,53 L53,63 L56,55 L58,58 L64,58" />
+    <!-- bubbles -->
+    <path android:fillColor="#FF8B5CFF" android:pathData="M66,24 m-3,0 a3,3 0 1,0 6,0 a3,3 0 1,0 -6,0" />
+    <path android:fillColor="#FF22E6FF" android:pathData="M72,16 m-2,0 a2,2 0 1,0 4,0 a2,2 0 1,0 -4,0" />
+</vector>
