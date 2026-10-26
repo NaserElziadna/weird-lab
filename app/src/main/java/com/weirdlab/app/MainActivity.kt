@@ -17,6 +17,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import com.weirdlab.app.inspect.BleRadarScreen
+import com.weirdlab.app.inspect.DoorSentinelScreen
+import com.weirdlab.app.inspect.ElectricHumScreen
+import com.weirdlab.app.inspect.LeakFinderScreen
+import com.weirdlab.app.inspect.StudFinderScreen
+import com.weirdlab.app.inspect.WifiHeatmapScreen
 import com.weirdlab.app.sensors.MagnetPainterScreen
 import com.weirdlab.app.sensors.SeismographScreen
 import com.weirdlab.app.sound.EchoScreen
@@ -66,6 +72,12 @@ fun WeirdLabApp() {
             Tool.MOSQUITO -> MosquitoScreen(back)
             Tool.REVERSE -> ReverseScreen(back)
             Tool.HUM -> HumScreen(back)
+            Tool.WIFI -> WifiHeatmapScreen(back)
+            Tool.BLE -> BleRadarScreen(back)
+            Tool.LEAK -> LeakFinderScreen(back)
+            Tool.HUMDET -> ElectricHumScreen(back)
+            Tool.STUD -> StudFinderScreen(back)
+            Tool.DOOR -> DoorSentinelScreen(back)
         }
     }
 }

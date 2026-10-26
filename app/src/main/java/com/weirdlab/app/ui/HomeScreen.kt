@@ -104,7 +104,7 @@ private fun Header() {
             )
         }
         Text(
-            "8 secret experiments hiding inside your phone",
+            "${Tool.entries.size} secret experiments hiding inside your phone",
             color = Neon.Text.copy(alpha = 0.8f), fontSize = 15.sp
         )
     }
