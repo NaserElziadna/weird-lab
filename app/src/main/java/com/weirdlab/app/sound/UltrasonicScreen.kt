@@ -194,7 +194,7 @@ private fun UltrasonicContent(tool: Tool) {
             )
         }
         LazyColumn(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-            items(messages, key = { it.timeMillis }) { m ->
+            items(messages) { m ->
                 GlassCard(Modifier.fillMaxWidth(), glow = if (m.checksumOk) Neon.Mint else Neon.Orange) {
                     Text(m.text, color = Neon.Text, fontSize = 17.sp, fontWeight = FontWeight.SemiBold)
                     Spacer(Modifier.height(4.dp))
