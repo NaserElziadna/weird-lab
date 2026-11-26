@@ -159,6 +159,8 @@ if not tap("ممتاز، هيا نبدأ", "continue (all granted)", scrolls=3):
     tap("متابعة", "continue")
 
 log("\n## Home + feeding session")
+for lab in ["آخر رضعة", "التنبيه القادم", "صباح الخير", "مساء الخير", "نهارك سعيد", "ليلة هادئة"]:
+    if find(lab, exact=False): log(f"- ✅ visible: «{lab}»")
 shoot_screen("home_empty", 3); top()
 tap("الأيسر", "choose left side")
 tap("ابدأ الرضعة", "START feeding")
@@ -175,12 +177,23 @@ shoot_screen("home_after_feed", 3)
 log("\n## Session from the notification")
 top(); tap("ابدأ الرضعة", "start again"); time.sleep(5)
 notif_shade("notif_before_actions")
-tap("تبديل الجهة", "notification: switch side", scrolls=0); time.sleep(3)
+def tap_notif(label, step):
+    for _ in range(6):
+        b = find(label, exact=False)
+        if b:
+            adb(f"shell input tap {(b[0]+b[2])//2} {(b[1]+b[3])//2}"); time.sleep(2)
+            if check(step): log(f"- ✅ {step}")
+            return True
+        time.sleep(1.5)
+    fails.append(step); log(f"- ❌ **{step}**: not found in notification"); shot("notfound_" + step.replace(" ", "_")[:20]); return False
+tap_notif("تبديل الجهة", "notification: switch side"); time.sleep(3)
 check("after notification switch")
 notif_shade("notif_after_switch")
-tap("إنهاء", "notification: finish", scrolls=0); time.sleep(2); collapse()
-adb(f"shell am start -n {PKG}/.MainActivity"); time.sleep(2)
+tap_notif("إنهاء", "notification: finish"); time.sleep(2); collapse()
+adb(f"shell am start -n {PKG}/.MainActivity"); time.sleep(3)
 shot("home_after_notification_finish")
+if find("ابدأ الرضعة"): log("- ✅ session ended from the notification (start button is back)")
+else: fails.append("notification finish state"); log("- ❌ **session still running after notification finish**")
 
 log("\n## Quick add")
 top(); tap("زجاجة", "quick: bottle"); shot("bottle_sheet")
